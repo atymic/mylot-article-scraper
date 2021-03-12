@@ -1,8 +1,10 @@
 # Mylot -> PDF Scraper
 
-Inspired by [this reddit post](https://www.reddit.com/r/DataHoarder/comments/m3c0c2/my_mother_just_passed_away_she_wrote_extensively/) i wrote a scraper to save all of his mum's mylot posts to PDFs, including images and comments.
+Inspired by [this reddit post](https://www.reddit.com/r/DataHoarder/comments/m3c0c2/my_mother_just_passed_away_she_wrote_extensively/) I wrote a scraper to save all of his mum's mylot posts to PDFs, including images and comments.
 
-Apologies in advance for the messy code, I wrote in in about half an hour. Feel free to PR fix
+Apologies in advance for the messy code, I wrote it in about half an hour. Feel free to PR fix.
+
+![example](./img/example.png)
 
 
 ## Running
