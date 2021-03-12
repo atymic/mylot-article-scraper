@@ -1,0 +1,14 @@
+{
+  "name": "mylot-scrape",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^3.2.0",
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.5",
+    "luxon": "^1.26.0",
+    "puppeteer": "^8.0.0",
+    "slugify": "^1.4.7"
+  }
+}
