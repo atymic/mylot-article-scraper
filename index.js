@@ -7,7 +7,7 @@ const slugify = require('slugify')
 const { DateTime } = require('luxon')
 
 class Mylot {
-  static async generatePagePDF (article, force = false) {
+  static async generatePagePDF(article, username, force = false) {
     const browser = await puppeteer.launch({ headless: true })
     const page = await browser.newPage()
     await page.goto(article.url, { waitUntil: 'networkidle0' })
@@ -18,7 +18,13 @@ class Mylot {
     const dateRaw = await page.$eval('#discDat', el => el.innerText)
     const dateFormatted = DateTime.fromFormat(dateRaw.replace(' CST', ''), 'MMMM d, yyyy h:ma').toISODate()
 
-    const filename = `out/${dateFormatted}-${slug}.pdf`
+    const dir = `out-${username}`;
+
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir);
+    }
+
+    const filename = `${dir}/${dateFormatted}-${slug}.pdf`
 
     if (fs.existsSync(filename) && !force) {
       console.info(`PDF for article ${article.url} already exists, skipping`)
@@ -102,7 +108,7 @@ const getStartAction = html => {
   await async.mapLimit(articles, 5, async article => {
     console.info(`PDFing URL ${article.url}`)
     try {
-      await Mylot.generatePagePDF(article)
+      await Mylot.generatePagePDF(article, args[0])
     } catch (e) {
       console.error(`Error PDFing with URL ${article.url}, ${e.toString()}`)
     }
