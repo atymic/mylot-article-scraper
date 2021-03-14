@@ -1,4 +1,3 @@
-out
-out2
+/out-*
 *.txt
 node_modules
